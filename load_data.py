@@ -9,7 +9,7 @@ import random
 from uuid import uuid4
 
 vault_token = ""
-number_of_keys = 500000 # 25K
+number_of_keys = 1000000
 
 with open('current_root_token') as f:
     vault_token = f.read().strip()
