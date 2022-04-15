@@ -7,9 +7,12 @@ import asyncio
 import json
 import random
 from uuid import uuid4
+import base64
 
 vault_token = ""
 number_of_keys = 1000000
+
+randbyte_block = str(base64.b64encode(random.randbytes(4096)))
 
 with open('current_root_token') as f:
     vault_token = f.read().strip()
@@ -24,7 +27,7 @@ async def load():
         for i in range(number_of_keys):
             data = {
                 'data': {
-                    str(random.randint(1,9999)): str(random.randint(1, 9999))
+                    str(random.randint(1,9999)): randbyte_block
                 }
             }
 
